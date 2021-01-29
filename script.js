@@ -27,13 +27,23 @@ function ticketHandler (ticket, isPlus){
         total = ticketCountNumber - 1;
     }
     document.getElementById(ticket+ "-input").value = total;
-    let ticketPrice = total;
-    if( ticket == 'first' ){
-        ticketPrice = total * 150;
-    }
-    if( ticket == 'economy' ){
-        ticketPrice = total * 100;
-    }
 
+    ticketPrice = totalTicketPrice ();
     document.getElementById("subtotal-price").innerText = '$' + ticketPrice;
 }
+
+// function for total price 
+    function totalTicketPrice (){
+        let firstTicketNumber = ticketInput("first-input");
+        let economyTicketNumber = ticketInput("economy-input");
+
+        let totalPrice = firstTicketNumber*150 + economyTicketNumber*100;
+        return totalPrice;
+    }
+// function for ticket input 
+    function ticketInput (id){
+        const ticketCount = document.getElementById(id);
+        const ticketNumber = parseInt(ticketCount.value);
+
+        return ticketNumber;
+    }
