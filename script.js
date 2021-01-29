@@ -1,46 +1,39 @@
 // First class ticket handling
 document.getElementById("first-plus").addEventListener("click", function(){
-    ticketHandler(true);
+    ticketHandler('first', true);
 })
 
 document.getElementById("first-minus").addEventListener("click", function(){
-    ticketHandler (false);
+    ticketHandler ('first', false);
 })
 // Economy class ticket handling 
 document.getElementById("economy-plus").addEventListener("click", function(){
-    economyTicketHandler(true);
+    ticketHandler('economy', true);
 })
 
 document.getElementById("economy-minus").addEventListener("click", function(){
-    economyTicketHandler (false,);
+    ticketHandler ('economy', false,);
 })
-// Function for first ticket 
-    function ticketHandler (isPlus){
-        var firstTicket = document.getElementById("first-input");
-        var firstTicketCount = parseInt(firstTicket.value);
-        let total = firstTicketCount;
-        if ( isPlus == true ){
-            total = firstTicketCount + 1;
-        }
-        if ( isPlus == false && total > 0){
-            total = firstTicketCount - 1;
-        }
-        document.getElementById("first-input").value = total;
-        let firstTicketPrice = total * 150;
-        document.getElementById("subtotal-price").innerText = '$' + firstTicketPrice;
-    }
-// Function for economy ticket 
-function economyTicketHandler (isPlus){
-    var economyTicket = document.getElementById("economy-input");
-    var economyTicketCount = parseInt(economyTicket.value);
-    let total = economyTicketCount;
+
+// Function for ticket count 
+function ticketHandler (ticket, isPlus){
+    var ticketCount = document.getElementById(ticket +"-input");
+    var ticketCountNumber = parseInt(ticketCount.value);
+    let total = ticketCountNumber;
     if ( isPlus == true ){
-        total = economyTicketCount + 1;
+        total = ticketCountNumber + 1;
     }
     if ( isPlus == false && total > 0){
-        total = economyTicketCount - 1;
+        total = ticketCountNumber - 1;
     }
-    document.getElementById("economy-input").value = total;
-    let economyTicketPrice = total * 100;
-    document.getElementById("subtotal-price").innerText = '$' + economyTicketPrice;
+    document.getElementById(ticket+ "-input").value = total;
+    let ticketPrice = total;
+    if( ticket == 'first' ){
+        ticketPrice = total * 150;
+    }
+    if( ticket == 'economy' ){
+        ticketPrice = total * 100;
+    }
+
+    document.getElementById("subtotal-price").innerText = '$' + ticketPrice;
 }
