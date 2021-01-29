@@ -7,7 +7,7 @@
 }
 body{
     font-family: 'Roboto', sans-serif;
-    background:url("bus-min.png");
+    background:url("bus.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: scroll;
@@ -103,10 +103,11 @@ nav ul li a:hover, a.active{
 }
 .plus-minus-btn{
     color: #3352F2;
-    font-size: 30px;
+    font-size: 15px;
     padding: 2px;
-    margin: 10px 10px 0px 0px;
-    word-spacing: 20px;
+    word-spacing: 2px;
+    background-color: white;
+    border: white;
 }
 .btn-style{
     display: block;
