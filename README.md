@@ -1,1 +1,1 @@
-# bus-ticket-service
+Bus ticket service using JavaScript
