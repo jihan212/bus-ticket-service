@@ -28,8 +28,7 @@ function ticketHandler (ticket, isPlus){
     }
     document.getElementById(ticket+ "-input").value = total;
 
-    ticketPrice = totalTicketPrice ();
-    document.getElementById("subtotal-price").innerText = '$' + ticketPrice;
+    totalTicketPrice ();
 }
 
 // function for total price 
@@ -37,8 +36,16 @@ function ticketHandler (ticket, isPlus){
         let firstTicketNumber = ticketInput("first-input");
         let economyTicketNumber = ticketInput("economy-input");
 
-        let totalPrice = firstTicketNumber*150 + economyTicketNumber*100;
-        return totalPrice;
+        let subTotalPrice = firstTicketNumber*150 + economyTicketNumber*100;
+        document.getElementById("subtotal-price").innerText = '$' + subTotalPrice;
+
+        const tax = subTotalPrice * 0.1;
+        document.getElementById("tax-amount").innerText = '$' + tax;
+
+        totalPrice = subTotalPrice + tax;
+        document.getElementById("total-amount").innerText = '$' + totalPrice;
+        
+        return subTotalPrice;
     }
 // function for ticket input 
     function ticketInput (id){
