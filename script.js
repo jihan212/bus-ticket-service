@@ -54,3 +54,11 @@ function ticketHandler (ticket, isPlus){
 
         return ticketNumber;
     }
+// working for Massage
+document.getElementById("book-now").addEventListener("click", function(){
+    const bookingArea = document.getElementById("booking-area");
+    bookingArea.style.display =  "none";
+
+    const massageArea = document.getElementById("massage-area");
+    massageArea.style.display = "block";
+})
